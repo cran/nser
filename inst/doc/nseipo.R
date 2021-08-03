@@ -5,8 +5,6 @@ knitr::opts_chunk$set(
 )
 
 ## ----example------------------------------------------------------------------
-# Example: Lets download the bhavcopy of 1 July 2021 for Equity. 
 library(nser)
-report = bhav("01072021")
-head(report)
+nseipo()
 

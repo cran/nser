@@ -5,8 +5,11 @@ knitr::opts_chunk$set(
 )
 
 ## ----example------------------------------------------------------------------
-# Example: Lets download the bhavcopy of 1 July 2021 for Equity. 
+# For Nifty 50 stocks
 library(nser)
-report = bhav("01072021")
-head(report)
+nseopen()
+
+# For F&O stocks 
+library(nser)
+nseopen("fo")
 
