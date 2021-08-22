@@ -4,9 +4,3 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 
-## ----example------------------------------------------------------------------
-library(nser)
-library(readr)
-report = bhavpr("01072021")
-head(report)
-

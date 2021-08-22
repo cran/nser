@@ -4,12 +4,3 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 
-## ----example------------------------------------------------------------------
-# For Nifty 50 stocks
-library(nser)
-nseopen()
-
-# For F&O stocks 
-library(nser)
-nseopen("fo")
-

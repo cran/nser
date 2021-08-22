@@ -4,13 +4,3 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 
-## ----example------------------------------------------------------------------
-# Live Nifty 50 data
-library(nser)
-nselive()
-
-# Live F&O data 
-library(nser)
-nselive("fo")
-
-
