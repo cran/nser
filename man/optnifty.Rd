@@ -2,7 +2,7 @@
 % Please edit documentation in R/optnifty.R
 \name{optnifty}
 \alias{optnifty}
-\title{Option Chain for NSE Nifty 50.}
+\title{Live Option Chain of NSE Nifty 50.}
 \source{
 <https://www.nseindia.com/option-chain>
 }
@@ -16,7 +16,7 @@ optnifty(raw_data = FALSE)
 datatable The option chain of NIFTY 50 for the current expiry.
 }
 \description{
-Option Chain for NSE Nifty 50.
+Live Option Chain of NSE Nifty 50.
 }
 \details{
 Get visual friendly display of Option chain of NIFTY 50 for the current expiry.

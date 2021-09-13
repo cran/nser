@@ -1,5 +1,5 @@
 ---
-title: "optbanknifty: Option Chain for NSE BANKNIFTY"
+title: "optbanknifty: Live Option Chain of NSE BANKNIFTY"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{optbanknifty}
