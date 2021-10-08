@@ -2,7 +2,7 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 <!-- badges: start -->
 
-[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/nser)](https://cran.r-project.org/package=nser)
+[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/nser)](https://cran.r-project.org/package=nser)
 [![cran
 checks](https://cranchecks.info/badges/summary/nser)](https://cran.r-project.org/web/checks/check_results_nser.html)
 [![Lifecycle:
@@ -12,15 +12,13 @@ stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 
 <!-- badges: end -->
 
-# Latest Version `1.3.1`
+# Latest Version `1.3.2`
 
--   New functions `nsetree`, `optnifty`, `optbanknifty`, `bhavfos`
+-   `optnifty`, `optbanknifty` are deprecated.
+
+-   New functions `nsetree`, `bhavfos`
 
 -   `nsetree` Get a treeplot plot of NSE NIFTY 50 and FO securities.
-
--   `optnifty` Option chain of NIFTY 50 for the current expiry.
-
--   `optbanknifty` Option chain of BANKNIFTY for the current expiry.
 
 -   `bhavfos` Download historical F&O Bhavcopy zip file through
     RSelenium.
@@ -93,14 +91,10 @@ nseopen("fo")
 library(nser)
 #> Creating a generic function for 'toJSON' from package 'jsonlite' in package 'googleVis'
 nseipo()
-#>   Equity /IPO Name    Type    Rating   Issue Price Issue Size (in crores)
-#> 1          Sansera     IPO Not Rated 734.00-744.00        1265.73 - 1282.
-#> 2  Markolines Traf SME IPO Not Rated         78.00                     40
-#> 3          Prevest SME IPO Not Rated   82.00-84.00          25.98 - 26.61
+#>   Equity /IPO Name    Type    Rating Issue Price Issue Size (in crores)
+#> 1  D.K. Enterprise SME IPO Not Rated          40                   7.99
 #>   Lot Size Open Date Close Date
-#> 1       20    14-Sep     16-Sep
-#> 2     1600    15-Sep     20-Sep
-#> 3     1600    15-Sep     17-Sep
+#> 1     3000    07-Oct     12-Oct
 ```
 
 ## Example 7. RSelenium to Download Equity Bhavcopy
@@ -158,16 +152,10 @@ nsetree()
 nsetree("fo")
 ```
 
-## Example 10. NSE NIFTY50 Option chain
+## Example 10. Daily data to Weelkly data
 
 ``` r
 library(nser)
-optnifty()
-```
-
-## Example 11. NSE NIFTY50 Option chain
-
-``` r
-library(nser)
-optbanknifty()
+data(dailydata)
+daytoweek(dailydata)
 ```
