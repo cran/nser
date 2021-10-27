@@ -1,4 +1,4 @@
-3826dfb2ceb5bea97d4a245ab1c4e551 *DESCRIPTION
+90f8532b5b3f8c4dd8a8d1185dc265cd *DESCRIPTION
 d57480ed0fcd80ff89a3a70e95df6103 *NAMESPACE
 9a11250451e0e05b9e1d2e9fab683e1b *R/bhav.R
 4888527b0cfe744fd051b566984f0684 *R/bhavfos.R
@@ -6,7 +6,7 @@ e47d99f467db30a043ba785305cfcb36 *R/bhavpr.R
 53f0ec2dbbe50afd4e2c8644370651a4 *R/bhavs.R
 73277bf5e44f87350b7b54752a3c7660 *R/bhavtoday.R
 04168aa7991963f35810b6ea55f22bc0 *R/dailydata.R
-450da362ecf1204417f696fe7e615d63 *R/daytoweek.R
+3d756f04db2139d979836a36d65897ef *R/daytoweek.R
 6e6c6691ee85c06429dfed4e2e54f553 *R/fobhav.R
 65b7edfc09f4954da8b36a504b0f8f29 *R/fobhavtoday.R
 8e40e2ff08a32d51e57a7c1bbe38f974 *R/nseindex.R
@@ -18,7 +18,7 @@ b9cc20b20e68f07f441f5e6b126652d2 *R/nsetree.R
 9568c6fef361ef35257508a11c75786d *R/optnifty.R
 c1ef40a14a67ef3512e0087506e56138 *R/utils-pipe.R
 2be7f6a8bbc69a1b1adeed9b565aa0b4 *R/zzz.R
-38a405afa17b56d95330cf5b3610063b *README.md
+de26a66620f45205c1bf0e7cae863f5f *README.md
 a69dfff7603e6e1c2660695e5afc58a4 *build/vignette.rds
 9748a1bc83e7796f422e89400c8354ac *data/dailydata.RData
 a4eec1529a405c397993293e85131996 *inst/doc/bhav.Rmd
@@ -46,10 +46,10 @@ e8c98e39c7a9fcb4b53cb90eb37e61cc *inst/doc/fobhavtoday.R
 b7b1c34db573c658de26b6b33418cc2a *inst/doc/fobhavtoday.html
 76a8605b0c9bbe99a0d6048179f193c8 *inst/doc/nseindex.R
 cbabcbeeebd7a9051dd8da50e9fe980a *inst/doc/nseindex.Rmd
-be3c2a062aa49382e1c9f463032895ca *inst/doc/nseindex.html
+422a6fe334f78869f77bac6434d1fd3d *inst/doc/nseindex.html
 fdb4bc94b470efbfa4888a2baaf3faf3 *inst/doc/nseipo.R
 080e818cdc12cda1cba71a2e93e9116a *inst/doc/nseipo.Rmd
-e818ab09853a7876475cdd321d4c8709 *inst/doc/nseipo.html
+ef76a9a049cf7023b1fdd4ad2d0208fa *inst/doc/nseipo.html
 e8c98e39c7a9fcb4b53cb90eb37e61cc *inst/doc/nselive.R
 275a166e3ff69cc6700ee66c4ec6bc7f *inst/doc/nselive.Rmd
 96d72da8d7f558cc7baaac532f103d14 *inst/doc/nselive.html

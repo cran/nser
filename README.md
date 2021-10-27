@@ -12,11 +12,13 @@ stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 
 <!-- badges: end -->
 
-# Latest Version `1.3.2`
+# Latest Version `1.3.3`
 
 -   `optnifty`, `optbanknifty` are deprecated.
 
--   New functions `nsetree`, `bhavfos`
+# New functions `nsetree`, `bhavfos`
+
+-   `daytoweek` Convert daily data of a stock to weekly data.
 
 -   `nsetree` Get a treeplot plot of NSE NIFTY 50 and FO securities.
 
