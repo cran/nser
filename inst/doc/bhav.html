@@ -48,11 +48,20 @@
 
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
-<p>To download historical bhavcopy just mention the date in numeric format(Date, Month, Year). Note that date should be mentioned in quotation mark &quot;&quot; (inverted comma).</p>
-<pre><code># Example: Lets download the bhavcopy of 1 July 2021 for Equity. 
+<ul>
+<li><p>Download bhavcopy from NSE(National Stock Exchange) and BSE(Bombay Stock Exchange).</p></li>
+<li><p>To download historical bhavcopy just mention the date in numeric format(Date, Month, Year). Note that date should be mentioned in quotation mark &quot;&quot; (inverted comma).</p></li>
+<li><p>The function tries to download bhavcopy from two sources i.e., Old (<a href="https://www1.nseindia.com/products/content/equities/equities/archieve_eq.htm" class="uri">https://www1.nseindia.com/products/content/equities/equities/archieve_eq.htm</a>) and New (<a href="https://www.nseindia.com/all-reports" class="uri">https://www.nseindia.com/all-reports</a>) websites of NSE.</p></li>
+</ul>
+<pre><code># Example: Let&#39;s download the Equity bhavcopy for 1 July 2021. 
+
 library(nser)
+#Download bhavcopy from NSE
 report = bhav(&quot;01072021&quot;)
-head(report)
+
+#Download bhavcopy from BSE
+report = bhav(&quot;01072021&quot;, &#39;BSE&#39;)
+
 </code></pre>
 </div>
 

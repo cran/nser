@@ -12,13 +12,15 @@ stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 
 <!-- badges: end -->
 
-# Latest Version `1.3.3`
+# Latest Version `1.3.5`
 
 -   `optnifty`, `optbanknifty` are deprecated.
 
-# New functions `nsetree`, `bhavfos`
+# New functions `nsetree`, `bhavfos`, `daytoweek`, `daytomonth`
 
--   `daytoweek` Convert daily data of a stock to weekly data.
+-   `daytomonth` Convert daily OHLC data to monthly data
+
+-   `daytoweek` Convert daily OHLC data of a stock to weekly data.
 
 -   `nsetree` Get a treeplot plot of NSE NIFTY 50 and FO securities.
 
@@ -89,15 +91,8 @@ nseopen("fo")
 
 ## Example 6. Current and Upcoming IPO’s
 
-``` r
-library(nser)
-#> Creating a generic function for 'toJSON' from package 'jsonlite' in package 'googleVis'
-nseipo()
-#>   Equity /IPO Name    Type    Rating Issue Price Issue Size (in crores)
-#> 1  D.K. Enterprise SME IPO Not Rated          40                   7.99
-#>   Lot Size Open Date Close Date
-#> 1     3000    07-Oct     12-Oct
-```
+    library(nser)
+    nseipo()
 
 ## Example 7. RSelenium to Download Equity Bhavcopy
 
@@ -156,8 +151,12 @@ nsetree("fo")
 
 ## Example 10. Daily data to Weelkly data
 
-``` r
-library(nser)
-data(dailydata)
-daytoweek(dailydata)
-```
+    library(nser)
+    data(dailydata)
+    daytoweek(dailydata)
+
+## Example 11. Daily data to Monthly data
+
+    library(nser)
+    data(dailydata)
+    daytomonth(dailydata)
