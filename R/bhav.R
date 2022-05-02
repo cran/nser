@@ -14,6 +14,7 @@
 #'
 #' @import stats
 #' @importFrom utils download.file read.csv unzip
+#' @importFrom curl has_internet
 #' @export
 #'
 #' @examples \dontrun{
@@ -24,6 +25,12 @@
 #' report = bhav("01072021", 'BSE')
 #' }
 bhav = function(x, se = 'NSE'){
+  # First check internet connection
+  if (!curl::has_internet()) {
+    message("No internet connection.")
+    return(invisible(NULL))
+  }
+
   if(!nchar(gsub("[^0-9]+", "", x)) == 8){
     print("Check the date. It should be an Eight digit interger.")
   } else{
@@ -97,8 +104,9 @@ bhav = function(x, se = 'NSE'){
     }
 
     if(se == 'NSE'){
-      df = tryCatch(bhav2(), error=function(e) bhav1())
-    }else if(se == 'BSE') df = bsebhav()
+      df = tryCatch(bhav2(), error=function(e) bhav1(), warning = function(w) conditionMessage(w))
+    }else if(se == 'BSE') df = tryCatch(bsebhav(), error = function(e) conditionMessage(e),
+                                        warning = function(w) conditionMessage(w))
 
     return(df)
   }

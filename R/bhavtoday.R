@@ -16,6 +16,8 @@
 #'
 #' @import stats
 #' @importFrom utils download.file read.csv unzip
+#' @importFrom curl has_internet
+#'
 #' @export
 #' @examples \dontrun{
 #' #Todays NSE Equity Bhavcopy
@@ -27,6 +29,11 @@
 #' }
 bhavtoday = function(se = 'NSE')
 {
+  if (!curl::has_internet()) {
+    message("No internet connection.")
+    return(invisible(NULL))
+  }
+
   baseurl = "https://archives.nseindia.com/content/historical/EQUITIES/"
   end = ".csv.zip"
   month = format(Sys.time(), "%m")
