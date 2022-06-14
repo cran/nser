@@ -1,4 +1,4 @@
-64cf1881ae696e16c93a9e9ddfcc1b15 *DESCRIPTION
+2eb90d7fac36af88ded6b35425e15a61 *DESCRIPTION
 ca28d04ff36609adf1b226ee1eb95b3e *NAMESPACE
 26b8720f82083f8aba5535f979a826f6 *R/bhav.R
 76f78c7f6b61dee4ff6401b4f365d4cc *R/bhavfos.R
@@ -48,7 +48,7 @@ e8c98e39c7a9fcb4b53cb90eb37e61cc *inst/doc/daytoweek.R
 f49eec9c3e1e1bd6113a43307d7bda52 *inst/doc/daytoweek.html
 4b38e82642648656607a67aa3e56ff1a *inst/doc/fdii.R
 b698745d0b87471e74ea885cd1852537 *inst/doc/fdii.Rmd
-5f5f790eb3d802eaba24fa15cc4500b0 *inst/doc/fdii.html
+2f7b27cea02180db57af06b685b5bbd3 *inst/doc/fdii.html
 7cb3befcef01949a4508ce72d61737ad *inst/doc/fobhav.R
 6d0ba671fe947610ec95fbd8ba90137d *inst/doc/fobhav.Rmd
 e5e2a8177456916b1aa3d2e52cc151cf *inst/doc/fobhav.html
@@ -57,10 +57,10 @@ e8c98e39c7a9fcb4b53cb90eb37e61cc *inst/doc/fobhavtoday.R
 b7b1c34db573c658de26b6b33418cc2a *inst/doc/fobhavtoday.html
 76a8605b0c9bbe99a0d6048179f193c8 *inst/doc/nseindex.R
 eefd9946bdf78de1892cb8dd1a898caf *inst/doc/nseindex.Rmd
-bb75bbcfab87f2b58644c51ca4bfd554 *inst/doc/nseindex.html
+4f3ba47b13abee048e397f1137cdbe5b *inst/doc/nseindex.html
 fdb4bc94b470efbfa4888a2baaf3faf3 *inst/doc/nseipo.R
 6a18c26a90dcd8f3c410f40b25eee54c *inst/doc/nseipo.Rmd
-aeda5bb356d4cf8f30a9aefa77313e3d *inst/doc/nseipo.html
+8a9e3c9a7e6aed038315986c4b77a682 *inst/doc/nseipo.html
 e8c98e39c7a9fcb4b53cb90eb37e61cc *inst/doc/nselive.R
 88d90fb61bdff68ba22859ac0b8a89fb *inst/doc/nselive.Rmd
 25e547ed50ebbff2a6244b40a307aa8f *inst/doc/nselive.html

@@ -3,8 +3,8 @@ Type: Package
 Title: Bhavcopy and Live Market Data from National Stock Exchange (NSE)
         & Bombay Stock Exchange (BSE) India for Equities and Equity
         Derivatives (F&O)
-Version: 1.4.1
-Date: 2022-05-02
+Version: 1.4.2
+Date: 2022-06-12
 Authors@R: person("Nandan", "Patil", email = "tryanother609@gmail.com", role = c("cre", "aut"))
 Maintainer: Nandan Patil <tryanother609@gmail.com>
 Description: Download Present & Historical Bhavcopy. Get Live Market data from NSE India of Equities and Derivatives(F&O) segment. Data source  <https://www.nseindia.com/>. 
@@ -22,7 +22,7 @@ RoxygenNote: 7.1.2
 VignetteBuilder: knitr
 Config/testthat/edition: 3
 NeedsCompilation: no
-Packaged: 2022-05-02 14:07:08 UTC; ACER
+Packaged: 2022-06-12 14:12:47 UTC; ACER
 Author: Nandan Patil [cre, aut]
 Repository: CRAN
-Date/Publication: 2022-05-02 16:10:06 UTC
+Date/Publication: 2022-06-14 10:20:02 UTC
