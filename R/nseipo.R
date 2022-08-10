@@ -23,10 +23,12 @@
 #' nseipo()
 #' }
 nseipo = function(){
-  # First check internet connection
-  if (!curl::has_internet()) {
-    message("No internet connection.")
-    return(invisible(NULL))
+
+  # Check for internet connection
+  if (curl::has_internet()){
+    message("Downloading Bhavcopy")
+  } else {
+    message("No internet connection")
   }
   url = 'https://www.moneycontrol.com/ipo/ipo-snapshot/issues-open.html'
   dat = url %>%

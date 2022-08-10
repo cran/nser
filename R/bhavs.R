@@ -15,10 +15,10 @@
 #' @source <https://www1.nseindia.com/products/content/equities/equities/archieve_eq.htm>
 #' @seealso \code{\link[nser]{bhavpr}}\code{\link[nser]{bhavtoday}}\code{\link[nser]{bhav}}\code{\link[nser]{fobhav}}\code{\link[nser]{bhavfos}}
 #'
-#' @import stats
+#' @import stats httr
 #' @import RSelenium
 #' @importFrom utils download.file read.csv unzip
-#'
+#' @importFrom curl has_internet
 #'
 #' @export
 #'
@@ -48,6 +48,36 @@ bhavs = function(x, n = 0){
   end = "&section=EQ"
   bhavurl = paste0(baseurl, dy, "-", mt, "-", yr, end)
   zipname = paste0("cm", dy, mt, yr, "bhav", ".csv", ".zip")
+
+  # Check for internet connection
+  if (curl::has_internet()){
+    message("Downloading Bhavcopy")
+  } else {
+    message("No internet connection")
+  }
+
+
+  try_GET <- function(x, ...) {
+    tryCatch(
+      GET(url = x, timeout(10), ...),
+      error = function(e) conditionMessage(e),
+      warning = function(w) conditionMessage(w)
+    )
+  }
+  is_response <- function(x) {
+    class(x) == "response"
+  }
+
+  resp <- try_GET(bhavurl)
+  if (!is_response(resp)) {
+    message(resp)
+    return(invisible(NULL))
+  }
+  # Then stop if status > 400
+  if (http_error(resp)) {
+    message_for_status(resp)
+    return(invisible(NULL))
+  }
 
   remDr$navigate(bhavurl)
   address_element1 <- remDr$findElement(using ="xpath", '/html/body/table/tbody/tr/td/a[1]')

@@ -26,10 +26,11 @@
 #' }
 #'
 nsetree = function(x = "n50"){
-  # check internet connection
-  if (!curl::has_internet()) {
-    message("No internet connection.")
-    return(invisible(NULL))
+  # Check for internet connection
+  if (curl::has_internet()){
+    message("Working")
+  } else {
+    message("No internet connection")
   }
 
   if(x == "n50"){
@@ -62,6 +63,13 @@ nsetree = function(x = "n50"){
   plot(Tree)
   }
   else if(x == "fo"){
+    # Check for internet connection
+    if (curl::has_internet()){
+      message("Working")
+    } else {
+      message("No internet connection")
+    }
+
     dat = nselive("fo")
     dat = dat[,c(1,7)]
     dat$parent = "FO"

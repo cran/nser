@@ -10,10 +10,9 @@
 #'
 #' @seealso \code{\link[nser]{bhavpr}}\code{\link[nser]{bhav}}
 #'
-#' @import stats
+#' @import stats httr
 #' @importFrom utils download.file read.csv unzip
 #' @importFrom curl has_internet
-#'
 #' @export
 #' @examples \dontrun{
 #' #Todays F&O Bhavcopy
@@ -22,10 +21,11 @@
 #' }
 fobhavtoday = function()
 {
-  # First check internet connection
-  if (!curl::has_internet()) {
-    message("No internet connection.")
-    return(invisible(NULL))
+  # Check for internet connection
+  if (has_internet()){
+    message("Downloading Bhavcopy")
+  } else {
+    message("No internet connection")
   }
 
   baseurl = "https://archives.nseindia.com/content/historical/DERIVATIVES/"
@@ -40,6 +40,28 @@ fobhavtoday = function()
   bhavurl = paste0(baseurl, year, "/", month, "/fo", date, month, year, "bhav", end)
   name = paste0(date, month, year)
   zipname = paste0("fo", date, month, year, "bhav", ".csv")
+
+  try_GET <- function(x, ...) {
+    tryCatch(
+      GET(url = x, timeout(10), ...),
+      error = function(e) conditionMessage(e),
+      warning = function(w) conditionMessage(w)
+    )
+  }
+  is_response <- function(x) {
+    class(x) == "response"
+  }
+
+  resp <- try_GET(bhavurl)
+  if (!is_response(resp)) {
+    message(resp)
+    return(invisible(NULL))
+  }
+  # Then stop if status > 400
+  if (http_error(resp)) {
+    message_for_status(resp)
+    return(invisible(NULL))
+  }
 
   temp <- tempfile()
   download.file(bhavurl, temp)

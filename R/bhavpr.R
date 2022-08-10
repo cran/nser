@@ -12,11 +12,10 @@
 #'
 #' @seealso \code{\link[nser]{bhav}}\code{\link[nser]{bhavtoday}}
 #'
-#' @import stats
+#' @import stats httr
 #' @importFrom utils download.file read.csv unzip
 #' @importFrom readr read_csv
 #' @importFrom curl has_internet
-#'
 #' @export
 #'
 #' @examples \dontrun{
@@ -25,9 +24,11 @@
 #' report = bhavpr("01072021")
 #' }
 bhavpr = function(x){
-  if (!curl::has_internet()) {
-    message("No internet connection.")
-    return(invisible(NULL))
+  # Check for internet connection
+  if (curl::has_internet()){
+    message("Downloading Bhavcopy")
+  } else {
+    message("No internet connection")
   }
 
   if(!nchar(gsub("[^0-9]+", "", x)) == 8){
@@ -40,6 +41,29 @@ bhavpr = function(x){
   baseurl = "https://archives.nseindia.com/archives/equities/bhavcopy/pr/"
   end = ".zip"
   bhavurl = paste0(baseurl, "PR", dy, mt, yrt, end)
+
+  try_GET <- function(x, ...) {
+    tryCatch(
+      GET(url = x, timeout(10), ...),
+      error = function(e) conditionMessage(e),
+      warning = function(w) conditionMessage(w)
+    )
+  }
+  is_response <- function(x) {
+    class(x) == "response"
+  }
+
+  resp <- try_GET(bhavurl)
+  if (!is_response(resp)) {
+    message(resp)
+    return(invisible(NULL))
+  }
+  # Then stop if status > 400
+  if (http_error(resp)) {
+    message_for_status(resp)
+    return(invisible(NULL))
+  }
+
   temp <- tempfile()
   download.file(bhavurl, temp)
   unzip(temp)
