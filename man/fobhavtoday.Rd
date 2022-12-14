@@ -19,7 +19,7 @@ Gets todays Futures and Options bhavcopy from NSE.
 The date should be strictly numerical and mentioned in quotation mark.The present days Bhavcopy would usually available in the evening.
 }
 \examples{
-\dontrun{
+\donttest{
 #Todays F&O Bhavcopy
 library(nser)
 report = fobhavtoday()

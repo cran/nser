@@ -14,23 +14,19 @@
 #' @importFrom curl has_internet
 #'
 #' @export
-#' @examples \dontrun{
+#' @examples \donttest{
 #' #Live status of Nifty Indices
 #' library(nser)
 #' nseindex()
 #' }
 nseindex = function(){
-  # Check for internet connection
-  if (curl::has_internet()){
-    message("Working")
-  } else {
-    message("No internet connection")
+  # First check internet connection
+  if (!curl::has_internet()) {
+    message("No internet connection.")
+    return(invisible(NULL))
   }
 
-  bhavurl = "https://www1.nseindia.com/homepage/Indices1.json"
-
-  dat = fromJSON(bhavurl)
-
+  dat = fromJSON('https://www1.nseindia.com/homepage/Indices1.json')
   live = dat[["data"]]
   live = live[,-5]
   live = `colnames<-`(live, c("NAME", "Last Price", "Change", "pChange"))

@@ -17,18 +17,16 @@
 #' @importFrom curl has_internet
 #'
 #' @export
-#' @examples \dontrun{
+#' @examples \donttest{
 #' # NSE IPO's
 #' library(nser)
 #' nseipo()
 #' }
 nseipo = function(){
-
-  # Check for internet connection
-  if (curl::has_internet()){
-    message("Downloading Bhavcopy")
-  } else {
-    message("No internet connection")
+  # First check internet connection
+  if (!curl::has_internet()) {
+    message("No internet connection.")
+    return(invisible(NULL))
   }
   url = 'https://www.moneycontrol.com/ipo/ipo-snapshot/issues-open.html'
   dat = url %>%

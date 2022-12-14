@@ -25,7 +25,7 @@ Gets todays bhavcopy from NSE. The function tries to get the bhavcopy from two s
 The date should be strictly numerical and mentioned in quotation mark.The present days Bhavcopy would usually available in the evening
 }
 \examples{
-\dontrun{
+\donttest{
 #Todays NSE Equity Bhavcopy
 library(nser)
 report = bhavtoday()

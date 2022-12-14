@@ -17,7 +17,7 @@
 #' @importFrom curl has_internet
 #'
 #' @export
-#' @examples \dontrun{
+#' @examples \donttest{
 #' # NSE Live market data for Nifty 50 stocks
 #' library(nser)
 #' nselive()
@@ -26,12 +26,10 @@
 #' nselive("fo")
 #' }
 nselive = function(x = "n50"){
-
-  # Check for internet connection
-  if (curl::has_internet()){
-    message("Working")
-  } else {
-    message("No internet connection")
+  #  check internet connection
+  if (!curl::has_internet()) {
+    message("No internet connection.")
+    return(invisible(NULL))
   }
 
   if(x == "n50"){
@@ -52,13 +50,6 @@ nselive = function(x = "n50"){
     return(num)
   }
   else if(x == "fo"){
-    # Check for internet connection
-    if (curl::has_internet()){
-      message("Working")
-    } else {
-      message("No internet connection")
-    }
-
     dat = fromJSON('https://www1.nseindia.com/live_market/dynaContent/live_watch/stock_watch/foSecStockWatch.json')
     live = dat[["data"]]
     live = live[,-c(9,11,14, 15, 16, 17, 20, 21)]

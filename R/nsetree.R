@@ -18,7 +18,7 @@
 #'
 #' @export
 #'
-#' @examples  \dontrun{ # Treemap of NIFTY50 securities
+#' @examples  \donttest{ # Treemap of NIFTY50 securities
 #' nsetree()
 #'
 #' # Treemap of F&O securities
@@ -26,11 +26,10 @@
 #' }
 #'
 nsetree = function(x = "n50"){
-  # Check for internet connection
-  if (curl::has_internet()){
-    message("Working")
-  } else {
-    message("No internet connection")
+  # check internet connection
+  if (!curl::has_internet()) {
+    message("No internet connection.")
+    return(invisible(NULL))
   }
 
   if(x == "n50"){
@@ -63,13 +62,6 @@ nsetree = function(x = "n50"){
   plot(Tree)
   }
   else if(x == "fo"){
-    # Check for internet connection
-    if (curl::has_internet()){
-      message("Working")
-    } else {
-      message("No internet connection")
-    }
-
     dat = nselive("fo")
     dat = dat[,c(1,7)]
     dat$parent = "FO"

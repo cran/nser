@@ -10,52 +10,26 @@
 #' @source <https://www.moneycontrol.com/stocks/marketstats/fii_dii_activity/index.php>
 #' @seealso \code{\link[nser]{nseipo}}\code{\link[nser]{bhav}}\code{\link[nser]{fobhavtoday}}\code{\link[nser]{nseopen}}
 #'
-#' @import stats httr
+#' @import stats
 #' @import tidyverse
 #' @importFrom rvest read_html html_nodes html_table
 #' @importFrom stringr str_extract
 #' @importFrom curl has_internet
-#'
-#'
 #' @export
-#' @examples \dontrun{
+#' @examples \donttest{
 #' # NSE IPO's
 #' library(nser)
 #' fdii()
 #' }
 #'
 fdii = function(){
-  # Check for internet connection
-  if (curl::has_internet()){
-    message("Working")
-  } else {
-    message("No internet connection")
+  #  check internet connection
+  if (!curl::has_internet()) {
+    message("No internet connection.")
+    return(invisible(NULL))
   }
 
   url = 'https://www.moneycontrol.com/stocks/marketstats/fii_dii_activity/index.php'
-  try_GET <- function(x, ...) {
-    tryCatch(
-      GET(url = x, timeout(10), ...),
-      error = function(e) conditionMessage(e),
-      warning = function(w) conditionMessage(w)
-    )
-  }
-  is_response <- function(x) {
-    class(x) == "response"
-  }
-
-  resp <- try_GET(url)
-  if (!is_response(resp)) {
-    message(resp)
-    return(invisible(NULL))
-  }
-  # Then stop if status > 400
-  if (http_error(resp)) {
-    message_for_status(resp)
-    return(invisible(NULL))
-  }
-
-
   dat = url %>%
     read_html() %>%
     html_nodes(xpath='//*[@id="fidicash"]/div') %>%

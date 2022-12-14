@@ -22,7 +22,7 @@ Treemap for Nifty50 and F&O Securities
 The function plots a treemap eith the recent change in price of securities.
 }
 \examples{
- \dontrun{ # Treemap of NIFTY50 securities
+ \donttest{ # Treemap of NIFTY50 securities
 nsetree()
 
 # Treemap of F&O securities

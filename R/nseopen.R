@@ -26,13 +26,6 @@
 #' nseopen("fo")
 #' }
 nseopen = function(x = "n50"){
-  # Check for internet connection
-  if (curl::has_internet()){
-    message("Working")
-  } else {
-    message("No internet connection")
-  }
-
   if(x == "n50"){
 dat = fromJSON('https://www1.nseindia.com/live_market/dynaContent/live_analysis/pre_open/nifty.json')
 open = dat[["data"]]
@@ -51,13 +44,6 @@ message("\nAdvances - ", adv, "\n",
 return(num)
   }
   else if(x == "fo"){
-    # Check for internet connection
-    if (curl::has_internet()){
-      message("Working")
-    } else {
-      message("No internet connection")
-    }
-
     dat = fromJSON('https://www1.nseindia.com/live_market/dynaContent/live_analysis/pre_open/fo.json')
     open = dat[["data"]]
     open = open[,-c(2,3,4,14,15,16,17)]
@@ -75,13 +61,6 @@ return(num)
     return(num)
   }
   else if(x == "all"){
-    # Check for internet connection
-    if (curl::has_internet()){
-      message("Working")
-    } else {
-      message("No internet connection")
-    }
-
     dat = fromJSON('https://www1.nseindia.com/live_market/dynaContent/live_analysis/pre_open/all.json')
     open = dat[["data"]]
     open = open[,-c(2,3,4,14,15,16,17)]

@@ -12,12 +12,12 @@
 #' @source <https://www1.nseindia.com/products/content/all_daily_reports.htm>, <https://www.bseindia.com/markets/marketinfo/BhavCopy.aspx>
 #' @seealso \code{\link[nser]{bhavpr}}\code{\link[nser]{bhavtoday}}
 #'
-#' @import stats httr
+#' @import stats
 #' @importFrom utils download.file read.csv unzip
 #' @importFrom curl has_internet
 #' @export
 #'
-#' @examples \dontrun{
+#' @examples \donttest{
 #' #Download Bhavcopy from NSE
 #' report = bhav("01072021") # Download bhavcopy for 01 July 2021
 #'
@@ -25,16 +25,14 @@
 #' report = bhav("01072021", 'BSE')
 #' }
 bhav = function(x, se = 'NSE'){
-  # Check for internet connection
-  if (curl::has_internet()){
-    message("Downloading Bhavcopy")
-  } else {
-    message("No internet connection")
+  # First check internet connection
+  if (!curl::has_internet()) {
+    message("No internet connection.")
+    return(invisible(NULL))
   }
 
-
   if(!nchar(gsub("[^0-9]+", "", x)) == 8){
-    print("Check the date. It should be an Eight digit interger.")
+    message("Check the date. It should be an Eight digit interger.")
   } else{
     x = as.character(x)
     dy = substr(x, start = 0, stop = 2)
@@ -75,27 +73,6 @@ bhav = function(x, se = 'NSE'){
     zipname = paste0("cm", dy, mt, yr, "bhav", ".csv")
 
     bhav1 = function(x){
-      try_GET <- function(x, ...) {
-        tryCatch(
-          GET(url = x, timeout(10), ...),
-          error = function(e) conditionMessage(e),
-          warning = function(w) conditionMessage(w)
-        )
-      }
-      is_response <- function(x) {
-        class(x) == "response"
-      }
-
-      resp <- try_GET(bhavurl)
-      if (!is_response(resp)) {
-        message(resp)
-        return(invisible(NULL))
-      }
-      # Then stop if status > 400
-      if (http_error(resp)) {
-        message_for_status(resp)
-        return(invisible(NULL))
-      }
       temp <- tempfile()
       download.file(bhavurl, temp)
       file = read.csv(unz(temp, filename = zipname))
@@ -104,27 +81,6 @@ bhav = function(x, se = 'NSE'){
     }
 
     bhav2 = function(x){
-      try_GET <- function(x, ...) {
-        tryCatch(
-          GET(url = x, timeout(10), ...),
-          error = function(e) conditionMessage(e),
-          warning = function(w) conditionMessage(w)
-        )
-      }
-      is_response <- function(x) {
-        class(x) == "response"
-      }
-
-      resp <- try_GET(bhavurl1)
-      if (!is_response(resp)) {
-        message(resp)
-        return(invisible(NULL))
-      }
-      # Then stop if status > 400
-      if (http_error(resp)) {
-        message_for_status(resp)
-        return(invisible(NULL))
-      }
       temp <- tempfile()
       download.file(bhavurl1, temp)
       file = read.csv(unz(temp, filename = zipname))
@@ -140,27 +96,6 @@ bhav = function(x, se = 'NSE'){
     bsezip = paste0('EQ_ISINCODE_', dy, mt1, yr1, '.CSV')
 
     bsebhav = function(x){
-      try_GET <- function(x, ...) {
-        tryCatch(
-          GET(url = x, timeout(10), ...),
-          error = function(e) conditionMessage(e),
-          warning = function(w) conditionMessage(w)
-        )
-      }
-      is_response <- function(x) {
-        class(x) == "response"
-      }
-
-      resp <- try_GET(bseurl)
-      if (!is_response(resp)) {
-        message(resp)
-        return(invisible(NULL))
-      }
-      # Then stop if status > 400
-      if (http_error(resp)) {
-        message_for_status(resp)
-        return(invisible(NULL))
-      }
       temp <- tempfile()
       download.file(bseurl, temp)
       file = read.csv(unz(temp, filename = bsezip))
