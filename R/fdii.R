@@ -11,7 +11,6 @@
 #' @seealso \code{\link[nser]{nseipo}}\code{\link[nser]{bhav}}\code{\link[nser]{fobhavtoday}}\code{\link[nser]{nseopen}}
 #'
 #' @import stats
-#' @import tidyverse
 #' @importFrom rvest read_html html_nodes html_table
 #' @importFrom stringr str_extract
 #' @importFrom curl has_internet

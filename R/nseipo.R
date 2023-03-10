@@ -10,7 +10,6 @@
 #' @seealso \code{\link[nser]{bhavpr}}\code{\link[nser]{bhav}}\code{\link[nser]{fobhavtoday}}\code{\link[nser]{nseopen}}
 #'
 #' @import stats
-#' @import tidyverse
 #' @importFrom rvest read_html html_nodes html_table
 #' @importFrom stringr str_remove_all
 #'
