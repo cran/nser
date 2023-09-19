@@ -22,7 +22,7 @@ The date should be strictly numerical and mentioned in quotation mark.The presen
 \donttest{
 #Todays F&O Bhavcopy
 library(nser)
-report = fobhavtoday()
+try(stop(report = fobhavtoday()))
 }
 }
 \seealso{

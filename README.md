@@ -10,20 +10,19 @@ stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 
 <!-- badges: end -->
 
-# Latest Version `1.4.4`
+# Latest Version `1.3.5`
 
--   `optnifty`, `optbanknifty` are deprecated.
+- `optnifty`, `optbanknifty` are deprecated.
 
 # New functions `nsetree`, `bhavfos`, `daytoweek`, `daytomonth`
 
--   `daytomonth` Convert daily OHLC data to monthly data
+- `daytomonth` Convert daily OHLC data to monthly data
 
--   `daytoweek` Convert daily OHLC data of a stock to weekly data.
+- `daytoweek` Convert daily OHLC data of a stock to weekly data.
 
--   `nsetree` Get a treeplot plot of NSE NIFTY 50 and FO securities.
+- `nsetree` Get a treeplot plot of NSE NIFTY 50 and FO securities.
 
--   `bhavfos` Download historical F&O Bhavcopy zip file through
-    RSelenium.
+- `bhavfos` Download historical F&O Bhavcopy zip file through RSelenium.
 
 # Introduction
 

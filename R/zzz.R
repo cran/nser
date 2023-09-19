@@ -5,3 +5,8 @@
   ))
 }
 
+foo <- NULL
+
+.onLoad <- function(libname, pkgname) {
+  foo <<- import("requests", delay_load = TRUE)
+}

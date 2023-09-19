@@ -26,6 +26,7 @@ Daily data of a stock with six columns.
 }
 \examples{
 \donttest{
+library(nser)
 data(dailydata)
 daytoweek(dailydata)
 }

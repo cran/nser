@@ -4,7 +4,7 @@
 \alias{nsetree}
 \title{Treemap for Nifty50 and F&O Securities}
 \source{
-<https://www1.nseindia.com/live_market/dynaContent/live_watch/equities_stock_watch.htm?cat=N>
+<https://www.nseindia.com/market-data/live-market-indices>
 }
 \usage{
 nsetree(x = "n50")
@@ -22,16 +22,14 @@ Treemap for Nifty50 and F&O Securities
 The function plots a treemap eith the recent change in price of securities.
 }
 \examples{
- \donttest{ # Treemap of NIFTY50 securities
+\dontrun{
+# Treemap of NIFTY50 securities
+library(nser)
 nsetree()
-
-# Treemap of F&O securities
-nsetree("fo")
 }
-
 }
 \seealso{
-\code{\link[nser]{bhavpr}}\code{\link[nser]{bhavtoday}}\code{\link[nser]{bhavs}}\code{\link[nser]{bhavfos}}
+\code{\link[nser]{bhavpr}}\code{\link[nser]{bhavtoday}}\code{\link[nser]{bhav}}\code{\link[nser]{fobhav}}
 }
 \author{
 Nandan L. Patil \email{tryanother609@gmail.com}

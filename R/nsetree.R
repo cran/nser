@@ -7,24 +7,21 @@
 #' @return treemap A Treemap of recent percent change in value of securities.
 #' @author Nandan L. Patil \email{tryanother609@@gmail.com}
 #' @details The function plots a treemap eith the recent change in price of securities.
-#' @source <https://www1.nseindia.com/live_market/dynaContent/live_watch/equities_stock_watch.htm?cat=N>
-#' @seealso \code{\link[nser]{bhavpr}}\code{\link[nser]{bhavtoday}}\code{\link[nser]{bhavs}}\code{\link[nser]{bhavfos}}
+#' @source <https://www.nseindia.com/market-data/live-market-indices>
+#' @seealso \code{\link[nser]{bhavpr}}\code{\link[nser]{bhavtoday}}\code{\link[nser]{bhav}}\code{\link[nser]{fobhav}}
 #'
-#' @import stats graphics
-#' @importFrom jsonlite fromJSON
+#' @import graphics rvest xml2 reticulate
 #' @importFrom googleVis gvisTreeMap
 #' @importFrom dplyr mutate
 #' @importFrom curl has_internet
-#'
+#' @importFrom stringr str_extract
 #' @export
 #'
-#' @examples  \donttest{ # Treemap of NIFTY50 securities
+#' @examples \dontrun{
+#' # Treemap of NIFTY50 securities
+#' library(nser)
 #' nsetree()
-#'
-#' # Treemap of F&O securities
-#' nsetree("fo")
-#' }
-#'
+#'}
 nsetree = function(x = "n50"){
   # check internet connection
   if (!curl::has_internet()) {
@@ -34,18 +31,25 @@ nsetree = function(x = "n50"){
 
   if(x == "n50"){
   dat = nselive()
-  dat = dat[,c(1,7)]
+  dat = dat[,c(1,8)]
   dat$parent = "NIFTY"
   dat$abs = abs(dat$pChange)
-  dat = dat %>% mutate(SYM = paste0(SYMBOL, "(", pChange, ")"))
+  dat = dat %>% mutate(SYM = paste0(SYMBOL, " (", pChange, ")"))
   dat$SYMBOL = as.factor(dat$SYMBOL)
   dat$parent = as.factor(dat$parent)
   dat_add <- data.frame(SYMBOL = c("NIFTY"), parent = c(NA), pChange  = c(0), abs = c(0), SYM = "NIFTY")
   dat = rbind(dat, dat_add)
 
-  dat1 = fromJSON('https://www1.nseindia.com/live_market/dynaContent/live_watch/stock_watch/niftyStockWatch.json')
-  adv = dat1[["advances"]]
-  dec = dat1[["declines"]]
+  url = 'https://www.moneycontrol.com/stocksmarketsindia/heat-map-advance-decline-ratio-nse-bse'
+  adv = url %>%
+    read_html() %>%
+    html_nodes(xpath='//*[@id="adnse"]/div/div[1]/div[3]/ul/li[1]/div/div[2]/span[1]')
+  adv = str_extract(as.character(adv), ("(?<=>)(.+)(?=\\<)"))
+  dec = url %>%
+    read_html() %>%
+    html_nodes(xpath='//*[@id="adnse"]/div/div[1]/div[3]/ul/li[1]/div/div[2]/span[2]')
+  dec = str_extract(as.character(dec), ("(?<=>)(.+)(?=\\<)"))
+
   heading = paste0("Futures and Options Securities",  " Advances-", adv, " Declines-", dec)
 
   maxColorValue = 100
@@ -61,9 +65,10 @@ nsetree = function(x = "n50"){
                                    showScale=TRUE))
   plot(Tree)
   }
+
   else if(x == "fo"){
     dat = nselive("fo")
-    dat = dat[,c(1,7)]
+    dat = dat[,c(1,8)]
     dat$parent = "FO"
     dat$abs = abs(dat$pChange)
     dat = dat %>% mutate(SYM = paste0(SYMBOL, "(", pChange, ")"))
@@ -72,10 +77,7 @@ nsetree = function(x = "n50"){
     dat_add <- data.frame(SYMBOL = c("FO"), parent = c(NA), pChange  = c(0), abs = c(0), SYM = "FO")
     dat = rbind(dat, dat_add)
 
-    dat1 = fromJSON('https://www1.nseindia.com/live_market/dynaContent/live_watch/stock_watch/foSecStockWatch.json')
-    adv = dat1[["adv"]]
-    dec = dat1[["dec"]]
-    heading = paste0("Futures and Options Securities",  " Advances-", adv, " Declines-", dec)
+    heading = paste0("Securities in Futures and Options ")
 
     maxColorValue = 100
     minColorValue = -100

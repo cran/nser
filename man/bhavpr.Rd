@@ -3,6 +3,9 @@
 \name{bhavpr}
 \alias{bhavpr}
 \title{Bhavcopy PR from NSE}
+\source{
+<https://www.nseindia.com/all-reports>
+}
 \usage{
 bhavpr(x)
 }

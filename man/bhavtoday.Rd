@@ -4,7 +4,7 @@
 \alias{bhavtoday}
 \title{Get Bhavcopy for the present day}
 \source{
-<https://www1.nseindia.com/products/content/all_daily_reports.htm>, <https://www.bseindia.com/markets/marketinfo/BhavCopy.aspx>
+<https://www.nseindia.com/all-reports>, <https://www.bseindia.com/markets/marketinfo/BhavCopy.aspx>
 }
 \usage{
 bhavtoday(se = "NSE")
@@ -25,8 +25,9 @@ Gets todays bhavcopy from NSE. The function tries to get the bhavcopy from two s
 The date should be strictly numerical and mentioned in quotation mark.The present days Bhavcopy would usually available in the evening
 }
 \examples{
-\donttest{
-#Todays NSE Equity Bhavcopy
+\dontrun{
+
+#Todays NSE Equity Bhavcopy, the data would be available usually after 6.30 PM.
 library(nser)
 report = bhavtoday()
 

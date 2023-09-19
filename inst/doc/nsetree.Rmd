@@ -29,5 +29,4 @@ nsetree()
 #Treemap of F&O securities
 nsetree("fo")
 
- 
 ```

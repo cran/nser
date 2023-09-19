@@ -10,23 +10,18 @@
 #' @source <https://www.moneycontrol.com/stocks/marketstats/fii_dii_activity/index.php>
 #' @seealso \code{\link[nser]{nseipo}}\code{\link[nser]{bhav}}\code{\link[nser]{fobhavtoday}}\code{\link[nser]{nseopen}}
 #'
-#' @import stats
 #' @importFrom rvest read_html html_nodes html_table
 #' @importFrom stringr str_extract
 #' @importFrom curl has_internet
 #' @export
-#' @examples \donttest{
-#' # NSE IPO's
+#' @examples \dontrun{
+#' # The function may fail when accessed outside from INDIA.
+#'
 #' library(nser)
 #' fdii()
 #' }
 #'
 fdii = function(){
-  #  check internet connection
-  if (!curl::has_internet()) {
-    message("No internet connection.")
-    return(invisible(NULL))
-  }
 
   url = 'https://www.moneycontrol.com/stocks/marketstats/fii_dii_activity/index.php'
   dat = url %>%

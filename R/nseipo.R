@@ -6,27 +6,21 @@
 #' @return A dataframe of IPO's on NSE.
 #' @author Nandan L. Patil \email{tryanother609@@gmail.com}
 #' @details List of upcoming and current IPO's on NSE gathered from moneycontrol.
-#'
+#' @source <https://www.moneycontrol.com/ipo/ipo-snapshot/issues-open.html>
 #' @seealso \code{\link[nser]{bhavpr}}\code{\link[nser]{bhav}}\code{\link[nser]{fobhavtoday}}\code{\link[nser]{nseopen}}
 #'
-#' @import stats
 #' @importFrom rvest read_html html_nodes html_table
 #' @importFrom stringr str_remove_all
 #'
 #' @importFrom curl has_internet
 #'
 #' @export
-#' @examples \donttest{
+#' @examples \dontrun{
 #' # NSE IPO's
 #' library(nser)
 #' nseipo()
 #' }
 nseipo = function(){
-  # First check internet connection
-  if (!curl::has_internet()) {
-    message("No internet connection.")
-    return(invisible(NULL))
-  }
   url = 'https://www.moneycontrol.com/ipo/ipo-snapshot/issues-open.html'
   dat = url %>%
     read_html() %>%

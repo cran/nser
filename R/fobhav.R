@@ -8,18 +8,17 @@
 #' @return F&O Bhavcopy for the given date.
 #' @author Nandan L. Patil \email{tryanother609@@gmail.com}
 #' @details Gets Futures and Options Bhavcopy from NSE for the given date.
-#' @source <https://www1.nseindia.com/products/content/all_daily_reports.htm>
+#' @source <https://www.nseindia.com/all-reports>
 #'
 #' @seealso \code{\link[nser]{bhavpr}}\code{\link[nser]{bhavtoday}}
 #'
-#' @import stats
 #' @importFrom utils download.file read.csv unzip
 #' @importFrom curl has_internet
 #'
 #' @export
 #'
 #' @examples report = fobhav("01072021") # Download F&O bhavcopy for 01 July 2021
-#' report
+#'
 fobhav = function(x){
   # check internet connection
   if (!curl::has_internet()) {

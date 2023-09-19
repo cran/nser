@@ -4,7 +4,7 @@
 \alias{bhav}
 \title{Bhavcopy from NSE}
 \source{
-<https://www1.nseindia.com/products/content/all_daily_reports.htm>, <https://www.bseindia.com/markets/marketinfo/BhavCopy.aspx>
+<https://www.nseindia.com/all-reports>, <https://www.bseindia.com/markets/marketinfo/BhavCopy.aspx>
 }
 \usage{
 bhav(x, se = "NSE")
