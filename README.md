@@ -10,23 +10,28 @@ stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 
 <!-- badges: end -->
 
-# Latest Version `1.3.5`
+# Latest Version `1.5.1`
 
-- `optnifty`, `optbanknifty` are deprecated.
+## NOTE 
+`nselive`, `nseopen` `nseindex`, `nsetree`, `optbanknifty` and `optnifty` obtain data from NSE using python scripts. Thus, you need to install Python modules `pandas` and `requests` in R, 
 
-# New functions `nsetree`, `bhavfos`, `daytoweek`, `daytomonth`
-
-- `daytomonth` Convert daily OHLC data to monthly data
-
-- `daytoweek` Convert daily OHLC data of a stock to weekly data.
-
-- `nsetree` Get a treeplot plot of NSE NIFTY 50 and FO securities.
-
-- `bhavfos` Download historical F&O Bhavcopy zip file through RSelenium.
+Following steps should help you to get started, 
+* Install latest version of `Python`, `Ananconda` and `Miniconda`. And add Python as PATH variable. 
+* Then in R, 
+``` r
+install.packages('reticulate')  # Install package reticulate
+library(reticulate) # Load package
+# You can also install miniconda in R by,
+# install_miniconda()
+py_install("requests") # Install python package requests
+py_install("pandas") # Install python package pandas
+# Helpgul tip: you can also add interpreter in "Tools/Global options/Python/miniconda". 
+```
+You should be good to go now...
 
 # Introduction
 
-“nser” helps you to download historical bhavcopy of Equities and F&O
+`nser` helps you to download historical bhavcopy of Equities and F&O
 segment easily.
 
 Package website [nser](https://nandp1.github.io/nser/)
@@ -88,8 +93,8 @@ nseopen("fo")
 
 ## Example 6. Current and Upcoming IPO’s
 
-    library(nser)
-    nseipo()
+library(nser)
+nseipo()
 
 ## Example 7. RSelenium to Download Equity Bhavcopy
 
@@ -157,3 +162,16 @@ nsetree("fo")
     library(nser)
     data(dailydata)
     daytomonth(dailydata)
+
+## Example 12. Option chain Nifty 50
+
+    library(nser)
+    optnifty()
+
+## Example 12. Option chain Banknifty
+
+    library(nser)
+    optbanknifty()
+    
+    
+    
