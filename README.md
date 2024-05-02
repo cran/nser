@@ -5,6 +5,7 @@
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/nser)](https://cran.r-project.org/package=nser)
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable-1)
+[![Github Code Size](https://img.shields.io/github/languages/code-size/nandp1/gpbStat.svg)](https://github.com/nandp1/nser)
 ![Downloads](http://cranlogs.r-pkg.org/badges/nser)
 [![](https://cranlogs.r-pkg.org/badges/grand-total/nser)](https://cran.r-project.org/package=nser)
 
@@ -96,51 +97,8 @@ nseopen("fo")
 library(nser)
 nseipo()
 
-## Example 7. RSelenium to Download Equity Bhavcopy
 
-``` r
-library(nser)
-library(RSelenium)
-
-# Start a selenium server and browser
-# For Google Chrome (Update Chrome to latest version)
-
- driver <- rsDriver(browser = c("chrome"), port = 3163L, chromever = "91.0.4472.101")
- remDr <- driver$client
-
-# or for Firefox
- driver <- rsDriver(browser = c("firefox"), port = 3799L)
- 
-# Download Equity Bhavcopy zip file
-bhavs("03012000", 2)
-
-# Close the Browser
-remDr$close()
-```
-
-## Example 8. RSelenium to Download F&O Bhavcopy
-
-``` r
-library(nser)
-library(RSelenium)
-
-# Start a selenium server and browser
-# For Google Chrome (Update Chrome to latest version)
-
- driver <- rsDriver(browser = c("chrome"), port = 3163L, chromever = "91.0.4472.101")
- remDr <- driver$client
-
-# or for Firefox
- driver <- rsDriver(browser = c("firefox"), port = 3799L)
- 
-# Download Equity Bhavcopy zip file
-bhavfos("03012000", 2)
-
-# Close the Browser
-remDr$close()
-```
-
-## Example 9. NSE Treemap
+## Example 7. NSE Treemap
 
 ``` r
 library(nser)
@@ -151,27 +109,25 @@ nsetree()
 nsetree("fo")
 ```
 
-## Example 10. Daily data to Weelkly data
+## Example 8. Daily data to Weelkly data
 
     library(nser)
     data(dailydata)
     daytoweek(dailydata)
 
-## Example 11. Daily data to Monthly data
+## Example 9. Daily data to Monthly data
 
     library(nser)
     data(dailydata)
     daytomonth(dailydata)
 
-## Example 12. Option chain Nifty 50
+## Example 10. Option chain Nifty 50
 
     library(nser)
     optnifty()
 
-## Example 12. Option chain Banknifty
+## Example 11. Option chain Banknifty
 
     library(nser)
     optbanknifty()
-    
-    
     

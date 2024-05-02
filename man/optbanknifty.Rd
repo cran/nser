@@ -2,7 +2,7 @@
 % Please edit documentation in R/optbanknifty.R
 \name{optbanknifty}
 \alias{optbanknifty}
-\title{Option Chain for NSE BANKNIFTY.}
+\title{Option Chain of NSE BANKNIFTY (current expiry date).}
 \source{
 <https://www.nseindia.com/option-chain>
 }
@@ -10,13 +10,13 @@
 optbanknifty()
 }
 \value{
-A dataframe containing option chain of NSE BANKNIFTY.
+A dataframe containing option chain of NSE BANKNIFT current expiry date.
 }
 \description{
-Option Chain for NSE BANKNIFTY.
+Option Chain of NSE BANKNIFTY (current expiry date).
 }
 \details{
-Get visual friendly display of Option chain of BANKNIFTY for the current expiry.
+Option chain of BANKNIFTY for the current expiry.
 }
 \examples{
  \dontrun{ # Example: BANKNIFTY option chain

@@ -1,11 +1,11 @@
 #' @name bhav
 #' @aliases bhav
-#' @title Bhavcopy from NSE
+#' @title Bhavcopy from NSE and BSE
 #'
 #' @param x numeric date format
 #' @param se Stock Exchange either 'NSE' or 'BSE'. Default is 'NSE'.
 #'
-#' @note The date should be strictly numerical and mentioned in quotation mark. `bhav` can be used to download bhavcopy from 1 Jan 2016 on wards. To download bhavcopy previous to aforementioned date use `bhavs`.
+#' @note The date should be strictly numerical and mentioned in quotation mark (refer examples). `bhav` can be used to download bhavcopy from 1 Jan 2016 on wards.
 #' @return Bhavcopy for the given date.
 #' @author Nandan L. Patil \email{tryanother609@@gmail.com}
 #' @details Gets Bhavcopy from NSE for the given date. The function tries to get the bhavcopy from two sources i.e., Old and New website of NSE.
