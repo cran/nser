@@ -21,18 +21,18 @@ Bhavcopy for the given date.
 Bhavcopy from NSE and BSE
 }
 \details{
-Gets Bhavcopy from NSE for the given date. The function tries to get the bhavcopy from two sources i.e., Old and New website of NSE.
+Gets Bhavcopy from NSE and BSE for the given date.
 }
 \note{
-The date should be strictly numerical and mentioned in quotation mark (refer examples). `bhav` can be used to download bhavcopy from 1 Jan 2016 on wards.
+The date should be strictly numerical and mentioned in quotation mark (refer examples). `bhav` can be used to download NSE bhavcopy from 1 Jan 2020 on wards.
 }
 \examples{
 \donttest{
 #Download Bhavcopy from NSE
-report = bhav("01072021") # Download bhavcopy for 01 July 2021
+report = bhav("01072024") # Download bhavcopy for 01 July 2024
 
 #Download bhavcopy from BSE
-report = bhav("01072021", 'BSE')
+report = bhav("01072024", 'BSE')
 }
 }
 \seealso{
