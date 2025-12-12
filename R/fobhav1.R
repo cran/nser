@@ -66,7 +66,10 @@ fobhav1 = function(x){
     zipname = paste0("fo", dy, mt, yr, "bhav", ".csv")
 
     temp <- tempfile()
-    download.file(bhavurl, temp)
+
+    tryCatch(download.file(bhavurl, temp), error=function(e) conditionMessage(e),
+                  warning = function(w) conditionMessage(w))
+    #download.file(bhavurl, temp)
     file <-  read.csv(unz(temp, filename = zipname))
     unlink(temp)
     return(file)
